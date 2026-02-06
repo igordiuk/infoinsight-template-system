@@ -1,10 +1,10 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Icons } from '../components/Icons';
-import { Button } from '../components/ui/Button';
-import { useTheme } from '../context/ThemeContext';
-import { cn } from '../lib/utils';
+import { Icons } from '@/components/Icons';
+import { Button } from '@/components/ui/Button';
+import { useTheme } from '@/context/ThemeContext';
+import { cn } from '@/lib/utils';
 
 interface HeaderProps {
   onOpenSidebar: () => void;
@@ -50,11 +50,20 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSidebar }) => {
       </div>
 
       <div className="flex items-center space-x-1 sm:space-x-2">
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={() => navigate('/lock')}
+          className="rounded-full h-9 w-9 text-slate-500 hover:text-slate-900 dark:hover:text-white"
+        >
+          <Icons.Lock className="w-5 h-5" />
+        </Button>
+
         <Button variant="ghost" size="icon" onClick={toggleTheme} className="rounded-full h-9 w-9">
           {theme === 'dark' ? <Icons.Sun className="w-5 h-5" /> : <Icons.Moon className="w-5 h-5" />}
         </Button>
-        
-        <div className="relative hidden xs:block">
+
+        <div className="relative">
           <Button variant="ghost" size="icon" className="rounded-full h-9 w-9 relative">
             <Icons.Bell className="w-5 h-5" />
             <span className="absolute top-2 right-2 w-2 h-2 bg-blue-500 rounded-full border-2 border-white dark:border-slate-900"></span>
@@ -64,7 +73,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSidebar }) => {
         <div className="h-6 w-px bg-slate-200 dark:bg-slate-800 mx-1 sm:mx-2" />
 
         <div className="relative" ref={menuRef}>
-          <button 
+          <button
             onClick={() => setProfileMenuOpen(!profileMenuOpen)}
             className={cn(
               "flex items-center space-x-2 md:space-x-3 p-1.5 pl-2 sm:pl-3 rounded-full transition-all duration-200 border border-transparent",
@@ -88,7 +97,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSidebar }) => {
                   { label: 'Configurações', icon: Icons.Settings, path: '/settings' },
                   { label: 'Bloquear', icon: Icons.Lock, path: '/lock' },
                 ].map(item => (
-                  <button 
+                  <button
                     key={item.label}
                     onClick={() => { setProfileMenuOpen(false); navigate(item.path); }}
                     className="w-full flex items-center px-3 py-2 text-sm text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl transition-colors group"

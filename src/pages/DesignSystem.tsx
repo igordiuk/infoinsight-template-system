@@ -1,20 +1,20 @@
 
 import React, { useState } from 'react';
-import { Card, CardHeader, CardContent } from '../components/ui/Card';
-import { Button } from '../components/ui/Button';
-import { Icons } from '../components/Icons';
-import { Badge } from '../components/ui/Badge';
-import { FormField } from '../components/ui/FormField';
-import { Modal } from '../components/ui/Modal';
-import { useToast } from '../context/ToastContext';
-import { cn } from '../lib/utils';
+import { Card, CardHeader, CardContent } from '@/components/ui/Card';
+import { Button } from '@/components/ui/Button';
+import { Icons } from '@/components/Icons';
+import { Badge } from '@/components/ui/Badge';
+import { FormField } from '@/components/ui/FormField';
+import { Modal } from '@/components/ui/Modal';
+import { useToast } from '@/context/ToastContext';
+import { cn } from '@/lib/utils';
 
 export const DesignSystemPage: React.FC = () => {
   const { addToast } = useToast();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <div className="space-y-12 pb-20 max-w-6xl mx-auto">
+    <div className="space-y-12 pb-20 w-full mx-auto">
       {/* Header da Página */}
       <header className="space-y-2">
         <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">Design System</h1>
@@ -40,16 +40,16 @@ export const DesignSystemPage: React.FC = () => {
               </div>
             </CardContent>
           </Card>
-          
+
           <Card>
             <CardHeader title="Paleta Principal" subtitle="Cores semânticas do sistema" />
             <CardContent>
-               <div className="grid grid-cols-4 gap-3">
-                 <ColorSwatch color="bg-blue-600" label="Primary" />
-                 <ColorSwatch color="bg-emerald-500" label="Success" />
-                 <ColorSwatch color="bg-amber-500" label="Warning" />
-                 <ColorSwatch color="bg-red-500" label="Danger" />
-               </div>
+              <div className="grid grid-cols-4 gap-3">
+                <ColorSwatch color="bg-blue-600" label="Primary" />
+                <ColorSwatch color="bg-emerald-500" label="Success" />
+                <ColorSwatch color="bg-amber-500" label="Warning" />
+                <ColorSwatch color="bg-red-500" label="Danger" />
+              </div>
             </CardContent>
           </Card>
         </div>
@@ -73,22 +73,22 @@ export const DesignSystemPage: React.FC = () => {
           <Card>
             <CardHeader title="Sistema de Toasts" subtitle="Notificações em tempo real" />
             <CardContent className="flex flex-wrap gap-3">
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 size="sm"
                 onClick={() => addToast({ type: 'success', title: 'Operação realizada', message: 'Os dados foram salvos na nuvem.' })}
               >
                 Toast Sucesso
               </Button>
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 size="sm"
                 onClick={() => addToast({ type: 'error', title: 'Erro de conexão', message: 'Não foi possível sincronizar os dados.' })}
               >
                 Toast Erro
               </Button>
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 size="sm"
                 onClick={() => addToast({ type: 'info', title: 'Nova Mensagem', message: 'Você recebeu um novo alerta no sistema.' })}
               >
@@ -113,9 +113,9 @@ export const DesignSystemPage: React.FC = () => {
               <Button size="icon" variant="primary"><Icons.Plus className="w-5 h-5" /></Button>
             </div>
             <div className="flex flex-wrap gap-4 items-center">
-               <Button variant="primary" size="sm">Pequeno</Button>
-               <Button variant="primary" size="md">Médio (Padrão)</Button>
-               <Button variant="primary" size="lg">Grande</Button>
+              <Button variant="primary" size="sm">Pequeno</Button>
+              <Button variant="primary" size="md">Médio (Padrão)</Button>
+              <Button variant="primary" size="lg">Grande</Button>
             </div>
           </CardContent>
         </Card>
@@ -174,8 +174,8 @@ export const DesignSystemPage: React.FC = () => {
       </section>
 
       {/* Modal de Exemplo */}
-      <Modal 
-        isOpen={isModalOpen} 
+      <Modal
+        isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         title="Exemplo de Modal"
         description="Esta é a estrutura padrão para diálogos de confirmação ou formulários rápidos."

@@ -1,12 +1,12 @@
 
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Button } from '../../components/ui/Button';
-import { Icons } from '../../components/Icons';
-import { Card, CardContent } from '../../components/ui/Card';
-import { FormField } from '../../components/ui/FormField';
-import { useToast } from '../../context/ToastContext';
-import { cn } from '../../lib/utils';
+import { Button } from '@/components/ui/Button';
+import { Icons } from '@/components/Icons';
+import { Card, CardContent } from '@/components/ui/Card';
+import { FormField } from '@/components/ui/FormField';
+import { useToast } from '@/context/ToastContext';
+import { cn } from '@/lib/utils';
 import { User } from './UserList';
 
 interface UserFormProps {
@@ -27,13 +27,13 @@ export const UserForm: React.FC<UserFormProps> = ({ user, onCancel, onSuccess })
   const onSubmit = async (data: any) => {
     // Simular latência de rede para demonstrar feedback visual
     await new Promise(resolve => setTimeout(resolve, 800));
-    
+
     addToast({
       type: 'success',
       title: user ? 'Registro Atualizado' : 'Usuário Criado',
       message: `As informações de ${data.name} foram salvas no sistema.`
     });
-    
+
     onSuccess(data);
   };
 
@@ -56,42 +56,42 @@ export const UserForm: React.FC<UserFormProps> = ({ user, onCancel, onSuccess })
             <Icons.Close className="w-5 h-5" />
           </Button>
         </div>
-        
+
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <FormField label="Nome Completo" icon={Icons.User} error={errors.name?.message as string}>
-              <input 
-                {...register('name', { 
+              <input
+                {...register('name', {
                   required: "O nome é obrigatório",
                   minLength: { value: 3, message: "Mínimo de 3 caracteres" }
-                })} 
+                })}
                 placeholder="Ex: Lucas Silva"
                 className={cn(
                   "w-full pl-12 pr-4 py-3 border rounded-2xl bg-white dark:bg-slate-800 outline-none transition-all",
                   errors.name ? "border-red-300" : "border-slate-200 dark:border-slate-700 focus:border-blue-500"
-                )} 
+                )}
               />
             </FormField>
 
             <FormField label="E-mail Corporativo" icon={Icons.Email} error={errors.email?.message as string}>
-              <input 
-                {...register('email', { 
-                  required: "E-mail é obrigatório", 
-                  pattern: { value: /^\S+@\S+$/i, message: "E-mail inválido" } 
-                })} 
+              <input
+                {...register('email', {
+                  required: "E-mail é obrigatório",
+                  pattern: { value: /^\S+@\S+$/i, message: "E-mail inválido" }
+                })}
                 placeholder="nome@empresa.com"
                 className={cn(
                   "w-full pl-12 pr-4 py-3 border rounded-2xl bg-white dark:bg-slate-800 outline-none transition-all",
                   errors.email ? "border-red-300" : "border-slate-200 dark:border-slate-700 focus:border-blue-500"
-                )} 
+                )}
               />
             </FormField>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <FormField label="Permissão de Acesso" icon={Icons.Shield} error={errors.role?.message as string}>
-              <select 
-                {...register('role', { required: "Selecione uma permissão" })} 
+              <select
+                {...register('role', { required: "Selecione uma permissão" })}
                 className="w-full pl-12 pr-10 py-3 border border-slate-200 dark:border-slate-700 rounded-2xl bg-white dark:bg-slate-800 outline-none appearance-none cursor-pointer"
               >
                 <option value="Admin">Administrador</option>
@@ -102,8 +102,8 @@ export const UserForm: React.FC<UserFormProps> = ({ user, onCancel, onSuccess })
             </FormField>
 
             <FormField label="Status da Conta" icon={Icons.Bell} error={errors.status?.message as string}>
-              <select 
-                {...register('status', { required: "Selecione um status" })} 
+              <select
+                {...register('status', { required: "Selecione um status" })}
                 className="w-full pl-12 pr-10 py-3 border border-slate-200 dark:border-slate-700 rounded-2xl bg-white dark:bg-slate-800 outline-none appearance-none cursor-pointer"
               >
                 <option value="Ativo">Ativo</option>

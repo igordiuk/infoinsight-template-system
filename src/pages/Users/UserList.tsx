@@ -1,10 +1,10 @@
 
 import React from 'react';
-import { Button } from '../../components/ui/Button';
-import { Icons } from '../../components/Icons';
-import { Card } from '../../components/ui/Card';
-import { Badge } from '../../components/ui/Badge';
-import { cn } from '../../lib/utils';
+import { Button } from '@/components/ui/Button';
+import { Icons } from '@/components/Icons';
+import { Card } from '@/components/ui/Card';
+import { Badge } from '@/components/ui/Badge';
+import { cn } from '@/lib/utils';
 
 export interface User {
   id: string;
@@ -56,18 +56,18 @@ export const UserList: React.FC<UserListProps> = ({ users, onEdit, onDelete }) =
                 </td>
                 <td className="px-6 py-4 text-right">
                   <div className="flex justify-end space-x-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <Button 
-                      variant="ghost" 
-                      size="icon" 
-                      onClick={() => onEdit(user)} 
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={() => onEdit(user)}
                       className="h-9 w-9 text-slate-400 hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-xl"
                     >
                       <Icons.Edit className="w-4 h-4" />
                     </Button>
-                    <Button 
-                      variant="ghost" 
-                      size="icon" 
-                      onClick={() => onDelete(user.id)} 
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={() => onDelete(user.id)}
                       className="h-9 w-9 text-slate-400 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-xl"
                     >
                       <Icons.Trash className="w-4 h-4" />

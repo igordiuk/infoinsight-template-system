@@ -1,9 +1,9 @@
 
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Icons } from '../components/Icons';
-import { cn } from '../lib/utils';
-import { Button } from '../components/ui/Button';
+import { Icons } from '@/components/Icons';
+import { cn } from '@/lib/utils';
+import { Button } from '@/components/ui/Button';
 
 interface SidebarProps {
   isOpen: boolean;
@@ -48,9 +48,9 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, isCollapsed, onToggleC
             <Icons.Close className="w-5 h-5" />
           </Button>
 
-          <Button 
-            variant="ghost" 
-            size="icon" 
+          <Button
+            variant="ghost"
+            size="icon"
             className={cn(
               "hidden lg:flex h-8 w-8 text-slate-400 hover:text-slate-600 transition-all",
               isCollapsed && "absolute -right-4 top-7 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-full shadow-sm z-10 hover:scale-110"
@@ -71,7 +71,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, isCollapsed, onToggleC
               className={({ isActive }) => cn(
                 "flex items-center rounded-xl transition-all duration-200 group text-sm font-medium h-10",
                 isCollapsed && !isOpen ? "justify-center px-0" : "px-4",
-                isActive 
+                isActive
                   ? "bg-blue-600 text-white shadow-md shadow-blue-500/20"
                   : "text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800/50 hover:text-slate-900 dark:hover:text-slate-100"
               )}

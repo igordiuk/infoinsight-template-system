@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { Card, CardHeader, CardContent } from '../components/ui/Card';
-import { Icons } from '../components/Icons';
+import { Card, CardHeader, CardContent } from '@/components/ui/Card';
+import { Icons } from '@/components/Icons';
 
 export const DashboardPage: React.FC = () => {
   const stats = [

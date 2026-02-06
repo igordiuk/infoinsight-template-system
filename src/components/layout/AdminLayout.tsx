@@ -1,9 +1,9 @@
 
 import React, { useState, useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
-import { Sidebar } from './Sidebar';
-import { Header } from './Header';
-import { cn } from '../lib/utils';
+import { Sidebar } from '@/components/layout/Sidebar';
+import { Header } from '@/components/layout/Header';
+import { cn } from '@/lib/utils';
 
 export const AdminLayout: React.FC = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -16,27 +16,27 @@ export const AdminLayout: React.FC = () => {
 
   return (
     <div className="min-h-screen flex bg-slate-50 dark:bg-slate-950 transition-colors duration-500 overflow-x-hidden">
-      
+
       {/* Overlay Backdrop */}
       {sidebarOpen && (
-        <div 
+        <div
           className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[45] lg:hidden transition-opacity animate-in fade-in duration-300"
           onClick={() => setSidebarOpen(false)}
         />
       )}
 
       {/* Sidebar Component */}
-      <Sidebar 
-        isOpen={sidebarOpen} 
-        isCollapsed={isCollapsed} 
+      <Sidebar
+        isOpen={sidebarOpen}
+        isCollapsed={isCollapsed}
         onToggleCollapse={() => setIsCollapsed(!isCollapsed)}
         onClose={() => setSidebarOpen(false)}
       />
 
       <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
         {/* Header Component */}
-        <Header 
-          onOpenSidebar={() => setSidebarOpen(true)} 
+        <Header
+          onOpenSidebar={() => setSidebarOpen(true)}
         />
 
         {/* Content Area */}

@@ -1,19 +1,19 @@
 
 import React from 'react';
 import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { ThemeProvider } from './context/ThemeContext';
-import { TabProvider } from './context/TabContext';
-import { ToastProvider } from './context/ToastContext';
-import { AuthLayout } from './layouts/AuthLayout';
-import { AdminLayout } from './layouts/AdminLayout';
-import { LoginPage } from './pages/Auth/Login';
-import { RegisterPage } from './pages/Auth/Register';
-import { RecoverPage } from './pages/Auth/Recover';
-import { LockScreenPage } from './pages/Auth/LockScreen';
-import { DashboardPage } from './pages/Dashboard';
-import { UserManagementPage } from './pages/CRUD/UserManagement';
-import { SettingsPage } from './pages/Profile/Settings';
-import { DesignSystemPage } from './pages/DesignSystem';
+import { ThemeProvider } from '@/context/ThemeContext';
+import { TabProvider } from '@/context/TabContext';
+import { ToastProvider } from '@/context/ToastContext';
+import { AuthLayout } from '@/components/layout/AuthLayout';
+import { AdminLayout } from '@/components/layout/AdminLayout';
+import { LoginPage } from '@/pages/Auth/Login';
+import { RegisterPage } from '@/pages/Auth/Register';
+import { RecoverPage } from '@/pages/Auth/Recover';
+import { LockScreenPage } from '@/pages/Auth/LockScreen';
+import { DashboardPage } from '@/pages/Dashboard';
+import { UserManagementPage } from '@/pages/Users/UserManagement';
+import { SettingsPage } from '@/pages/Settings/Settings';
+import { DesignSystemPage } from '@/pages/DesignSystem';
 
 const App: React.FC = () => {
   return (

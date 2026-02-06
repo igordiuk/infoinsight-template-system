@@ -2,8 +2,8 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { Button } from '../../components/ui/Button';
-import { Icons } from '../../components/Icons';
+import { Button } from '@/components/ui/Button';
+import { Icons } from '@/components/Icons';
 
 export const LoginPage: React.FC = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();

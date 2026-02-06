@@ -1,11 +1,11 @@
 
 import React, { useState } from 'react';
-import { useTabs } from '../../context/TabContext';
-import { useToast } from '../../context/ToastContext';
-import { Button } from '../../components/ui/Button';
-import { Icons } from '../../components/Icons';
-import { Modal } from '../../components/ui/Modal';
-import { cn } from '../../lib/utils';
+import { useTabs } from '@/context/TabContext';
+import { useToast } from '@/context/ToastContext';
+import { Button } from '@/components/ui/Button';
+import { Icons } from '@/components/Icons';
+import { Modal } from '@/components/ui/Modal';
+import { cn } from '@/lib/utils';
 import { UserList, User } from './UserList';
 import { UserForm } from './UserForm';
 
@@ -51,23 +51,23 @@ export const UserManagementPage: React.FC = () => {
             onClick={() => setActiveTabId(tab.id)}
             className={cn(
               "flex items-center px-6 py-4 border-b-2 text-sm font-bold transition-all whitespace-nowrap",
-              activeTabId === tab.id 
-                ? 'border-blue-600 text-blue-600 bg-blue-50/30 dark:bg-blue-900/10' 
+              activeTabId === tab.id
+                ? 'border-blue-600 text-blue-600 bg-blue-50/30 dark:bg-blue-900/10'
                 : 'border-transparent text-slate-400 hover:text-slate-600 dark:hover:text-slate-200'
             )}
           >
             {tab.type === 'list' ? <Icons.Menu className="w-4 h-4 mr-2" /> : <Icons.Edit className="w-4 h-4 mr-2" />}
             {tab.title}
             {tab.id !== 'list' && (
-              <Icons.Close 
-                className="w-3 h-3 ml-3 opacity-40 hover:opacity-100 hover:text-red-500 transition-all" 
-                onClick={(e) => { e.stopPropagation(); removeTab(tab.id); }} 
+              <Icons.Close
+                className="w-3 h-3 ml-3 opacity-40 hover:opacity-100 hover:text-red-500 transition-all"
+                onClick={(e) => { e.stopPropagation(); removeTab(tab.id); }}
               />
             )}
           </button>
         ))}
-        <Button 
-          variant="ghost" 
+        <Button
+          variant="ghost"
           size="sm"
           onClick={() => addTab({ id: `new-${Date.now()}`, title: 'Novo Usuário', type: 'create' })}
           className="ml-auto text-blue-600 font-bold hover:bg-blue-50 dark:hover:bg-blue-900/20"
@@ -79,17 +79,17 @@ export const UserManagementPage: React.FC = () => {
       {/* View Container */}
       <section className="min-h-[400px]">
         {activeTabId === 'list' ? (
-          <UserList 
+          <UserList
             users={users}
-            onEdit={(user) => addTab({ id: user.id, title: `Editar: ${user.name}`, type: 'edit', data: user })} 
+            onEdit={(user) => addTab({ id: user.id, title: `Editar: ${user.name}`, type: 'edit', data: user })}
             onDelete={(id) => setDeleteId(id)}
           />
         ) : (
           tabs.map(tab => tab.id === activeTabId && (
-            <UserForm 
-              key={tab.id} 
-              user={tab.data} 
-              onCancel={() => removeTab(tab.id)} 
+            <UserForm
+              key={tab.id}
+              user={tab.data}
+              onCancel={() => removeTab(tab.id)}
               onSuccess={handleCreateOrUpdate}
             />
           ))

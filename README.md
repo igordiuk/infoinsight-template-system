@@ -1,7 +1,36 @@
-
 # InfoInsight Admin Template
 
-Este é o sistema base da InfoInsight, desenvolvido com **React 19**, **Tailwind CSS** e **TypeScript**.
+Este é o sistema base da InfoInsight, desenvolvido com **React 19**, **Tailwind CSS** e **TypeScript**. O projeto segue uma estrutura organizada e escalável para facilitar a manutenção e a integração de novos desenvolvedores.
+
+## 📂 Estrutura do Projeto
+
+O código-fonte principal reside no diretório `src/`, seguindo uma separação clara de responsabilidades:
+
+- `src/components/`
+  - `ui/`: Componentes base reutilizáveis (Botões, Inputs, Cards, etc).
+  - `layout/`: Componentes de estrutura (Header, Sidebar, Layouts de autenticação e admin).
+  - `Icons.tsx`: Centralização de ícones utilizados no projeto.
+- `src/context/`: Provedores de estado global (Tema, Tabs, Toasts).
+- `src/pages/`: Telas da aplicação organizadas por funcionalidade.
+  - `Users/`: Gestão de usuários (Listagem, Criação, Edição).
+  - `Auth/`: Telas de Login, Registro e Recuperação.
+  - `Settings/`: Configurações de perfil e sistema.
+- `src/lib/`: Utilitários, funções auxiliares e instâncias de bibliotecas.
+- `src/App.tsx`: Definição de rotas e estrutura principal.
+- `src/index.tsx`: Ponto de entrada da aplicação.
+- `src/index.css`: Estilos globais e diretivas do Tailwind.
+
+## 🛠️ Melhores Práticas & Documentação
+
+### Aliases de Importação
+Utilizamos o alias `@/` para referenciar o diretório `src/`. Isso evita caminhos relativos longos (como `../../../`) e facilita a movimentação de arquivos.
+*Exemplo:* `import { Button } from '@/components/ui/Button'`
+
+### Clean Code e UI Pronta
+- Componentes modulares e tipados com TypeScript.
+- Design System integrado com Tailwind CSS.
+- Transições suaves e suporte nativo a Tema Dark/Light.
+- Feedback visual instantâneo via sistema de Toasts.
 
 ## 🚀 Como rodar localmente
 
@@ -15,42 +44,9 @@ Este é o sistema base da InfoInsight, desenvolvido com **React 19**, **Tailwind
    npm run dev
    ```
 
-## 📂 Estrutura do Projeto
-
-- `components/`: Componentes de interface reutilizáveis (UI).
-- `context/`: Provedores de estado global (Tema, Tabs, Toasts).
-- `layouts/`: Estruturas de página (Admin, Auth).
-- `pages/`: Telas principais do sistema e fluxos de CRUD.
-- `lib/`: Utilitários e funções auxiliares.
-
-## 🛠️ Como enviar para o Git (GitHub/GitLab)
-
-Se você perdeu o diretório e quer recriar o repositório do zero:
-
-1. **Inicialize o Git no diretório**:
+3. **Build para produção**:
    ```bash
-   git init
-   ```
-
-2. **Adicione os arquivos**:
-   ```bash
-   git add .
-   ```
-
-3. **Crie o primeiro commit**:
-   ```bash
-   git commit -m "feat: reconfiguração completa do sistema e design system"
-   ```
-
-4. **Conecte ao seu repositório remoto**:
-   ```bash
-   git remote add origin https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git
-   ```
-
-5. **Suba os arquivos**:
-   ```bash
-   git branch -M main
-   git push -u origin main
+   npm run build
    ```
 
 ---
