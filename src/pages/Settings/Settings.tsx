@@ -13,7 +13,7 @@ export const SettingsPage: React.FC = () => {
   const [notifications, setNotifications] = useState({ email: true, push: false, sms: true });
 
   // Perfil State
-  const [profileImage, setProfileImage] = useState<string>("https://picsum.photos/id/64/150/150");
+  const [profileImage, setProfileImage] = useState<string>("/avatar-default.png");
   const [isUploading, setIsUploading] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(0);
   const fileInputRef = useRef<HTMLInputElement>(null);

@@ -34,8 +34,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, isCollapsed, onToggleC
           isCollapsed ? "justify-center" : "justify-between"
         )}>
           <div className="flex items-center space-x-3 overflow-hidden">
-            <div className="min-w-[32px] w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center shrink-0 shadow-lg shadow-blue-500/30">
-              <span className="text-white font-bold">i</span>
+            <div className="min-w-[32px] w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center shrink-0 shadow-lg shadow-blue-500/30">
+              <img src="/logo.png" alt="InfoInsight Logo" className="w-full h-full object-cover" />
             </div>
             {(!isCollapsed || isOpen) && (
               <span className="text-xl font-bold tracking-tight text-slate-800 dark:text-white truncate animate-in fade-in duration-500">

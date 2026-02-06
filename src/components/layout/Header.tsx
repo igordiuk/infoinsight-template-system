@@ -81,7 +81,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSidebar }) => {
             )}
           >
             <span className="hidden sm:inline-block text-xs font-semibold text-slate-700 dark:text-slate-300">Lucas Silva</span>
-            <img src="https://picsum.photos/id/64/32/32" className="w-8 h-8 rounded-full border border-slate-200 shrink-0" alt="Avatar" />
+            <img src="/avatar-default.png" className="w-8 h-8 rounded-full border border-slate-200 shrink-0" alt="Avatar" />
             <Icons.ChevronDown className={cn("w-3.5 h-3.5 text-slate-400 transition-transform", profileMenuOpen && "rotate-180")} />
           </button>
 

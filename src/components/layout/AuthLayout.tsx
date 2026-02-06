@@ -7,9 +7,9 @@ export const AuthLayout: React.FC = () => {
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col items-center justify-center p-4">
       <div className="w-full max-w-md space-y-8 animate-in zoom-in-95 duration-300">
         <div className="text-center mb-8">
-           <div className="inline-flex w-12 h-12 bg-blue-600 rounded-xl items-center justify-center mb-4 shadow-lg shadow-blue-500/20">
-              <span className="text-white text-2xl font-bold">i</span>
-            </div>
+          <div className="inline-flex w-12 h-12 rounded-xl overflow-hidden items-center justify-center mb-4 shadow-lg shadow-blue-500/20">
+            <img src="/logo.png" alt="Logo" className="w-full h-full object-cover" />
+          </div>
           <h1 className="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">InfoInsight</h1>
           <p className="mt-2 text-slate-500 dark:text-slate-400">Plataforma Inteligente de Gestão</p>
         </div>
